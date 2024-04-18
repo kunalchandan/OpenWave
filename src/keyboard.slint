@@ -1,0 +1,28 @@
+
+export component Keyboard inherits Window {
+    width: 450px;
+    height: 230px;
+    background: black;
+    for pkey in 14: Rectangle {
+        x: (parent.width / 14) * pkey;
+        y: 0;
+        width: parent.width / 14;
+        height: parent.height;
+        border-radius: 5px;
+        border-width: 2px;
+        border-color: darkslateblue;
+        background: lightsteelblue;
+    }
+    for pkey in 14: Rectangle {
+        if pkey != 3 && pkey != 6 && pkey != 10 && pkey != 13: Rectangle {
+            x: ((parent.width / 14) * (pkey + 1)) - (self.width / 2);
+            y: 0;
+            width: (parent.width * 0.8) / 14;
+            height: parent.height * 0.6;
+            border-radius: 5px;
+            border-width: 2px;
+            border-color: lightslategrey;
+            background: darkslateblue;
+        }
+    }
+}
