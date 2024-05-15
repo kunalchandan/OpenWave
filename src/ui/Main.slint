@@ -1,0 +1,18 @@
+import { LPFWindow } from "LPFWindow.slint";
+import { Keyboard } from "keyboard.slint";
+import { Dials } from "dials.slint";
+import { GridBox } from "std-widgets.slint";
+
+export component MainUI {
+    GridBox {
+        Row {
+            Dials { }
+
+            LPFWindow { }
+        }
+
+        Row {
+            Keyboard { }
+        }
+    }
+}
