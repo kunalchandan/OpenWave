@@ -8,9 +8,13 @@ build = "build.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+# GUI
 slint = "1.5"
+# Env vars for local build
 dotenvy = "0.15"
-
+# Audio processing
+wavers = "1.4"
+cpal = { version = "0.15", features = ["asio"] }
 
 [build-dependencies]
 slint-build = "1.5"
