@@ -1,0 +1,55 @@
+
+import { ComboBox } from "std-widgets.slint";
+
+export component Dials inherits Window {
+    width: 512px;
+    height: 128px;
+    background: black;
+    default-font-family: "Lato";
+    property <int> nDials: 1;
+    GridLayout {
+        height: parent.height / 6;
+        y: 0;
+        Row {
+            ComboBox {
+                model: [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                ];
+                selected(item) => {
+                    root.nDials = (self.current-value).to-float();
+                }
+            }
+        }
+    }
+
+    for dial in root.nDials: Rectangle {
+        x: (parent.width / root.nDials) * dial;
+        y: parent.height / 3;
+        width: parent.width / root.nDials;
+        height: parent.height * 2 / 3;
+        background: firebrick.darker(2);
+        border-width: 3px;
+        border-color: white;
+        Rectangle {
+            x: parent.width / 2 - self.width / 2;
+            y: parent.height / 2 - self.height / 2;
+            width: min(parent.width * 0.6, parent.height * 0.6);
+            height: min(parent.width * 0.6, parent.height * 0.6);
+            border-radius: self.width / 2;
+            background: whitesmoke;
+        }
+
+        Text {
+            text: "Dial \{dial}";
+            x: parent.width / 2 - self.width / 2;
+            y: parent.height - self.font-size * 1.5;
+            font-size: 14px;
+            color: white;
+        }
+    }
+}

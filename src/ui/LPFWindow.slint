@@ -1,0 +1,53 @@
+
+import { LineEdit } from "std-widgets.slint";
+export component LPFWindow {
+    width: 256px;
+    height: 128px;
+    Rectangle {
+        width: parent.width;
+        height: parent.height;
+        Text {
+            x: parent.width / 9;
+            y: parent.height / 9;
+            text: "Low Pass Filter";
+            font-family: "Lato";
+            font-weight: 100;
+            font-italic: true;
+            font-size: 15px;
+        }
+
+        Path {
+            x: 0;
+            y: 0;
+            width: parent.width;
+            height: parent.height;
+            stroke: blueviolet;
+            stroke-width: 4px;
+            viewbox-width: parent.width / 1px;
+            viewbox-height: parent.height / 1px;
+            MoveTo {
+                x: 0;
+                y: parent.height / 2px;
+            }
+
+            LineTo {
+                x: parent.width / 2.5px;
+                y: parent.height / 2px;
+            }
+
+            CubicTo {
+                control-1-x: parent.width / 2px;
+                control-1-y: parent.width / 2px;
+                control-2-x: parent.width / 2px;
+                control-2-y: parent.width / 2px;
+                x: parent.width / 2px;
+                y: parent.width / 2px;
+            }
+
+            LineTo {
+                x: parent.width / 2px;
+                y: parent.height / 1px;
+            }
+        }
+    }
+}
